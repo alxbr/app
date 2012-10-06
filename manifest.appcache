@@ -1,8 +1,17 @@
 CACHE MANIFEST
-# version 20121002-2350
+# version 0.1
 index.html
 img/html5.png
 css/main.css
 css/normalize.css
 js/main.js
 js/plugins.js
+
+CACHE:
+css/default.css
+
+NETWORK:
+*
+
+FALLBACK:
+/ offline.html

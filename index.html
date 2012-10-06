@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<h1>AppCache Test Page</h1>
+<h1>AppCache Test Page v0.1</h1>
 
 <div role="main">
 
@@ -17,6 +17,8 @@
 	<img src="img/html5.png" alt="HTML5 Offline">
 
 	<div id="info"></div>
+
+	<a href="../index.html">Back</a>
 
 </div>
 
@@ -86,7 +88,16 @@
 	window.addEventListener("offline", function(e) {
 		appCacheLog("You are offline");
 	}, true);
+	
+	applicationCache.addEventListener('updateready', function(e) {
+		appCacheLog("Page will be reloaded automatically in 5s.");
+		window.applicationCache.swapCache();
+		appCacheLog("Swap cache done");
+//		appCacheLog("Reload page in...");
+		setTimeout(function(){location.reload()},5000);
 
+	}, false);
+	
 	// Convert applicationCache status codes into messages
 	showCacheStatus = function(n) {
 		statusMessages = ["Uncached","Idle","Checking","Downloading","Update Ready","Obsolete"];
